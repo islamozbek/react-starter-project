@@ -57,6 +57,7 @@ class Project extends React.Component {
         e.preventDefault();
         if(this.state.id){
             this.datas[this.state.id] = this.state.data;
+            this.state.id = null;
             console.log('edited');
         }else {
             this.datas.push(this.state.data);
@@ -67,7 +68,16 @@ class Project extends React.Component {
 
     // for open and close
     toggleButton(){
-        this.setState({ modal: !this.state.modal });
+        this.setState({
+            modal: !this.state.modal,
+            data: {id: '',
+                name: '',
+                surname: '',
+                old: '',
+                gender: '',
+                phone : '',
+                address : ''}
+        });
     }
 
     // input handle
